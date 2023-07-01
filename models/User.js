@@ -45,6 +45,7 @@ const User = db.define('User', {
   },
 })
 
+//Critografia da senha
 User.beforeCreate(async (user) => {  
   console.log(user.password)
   const passwordHash = await bcrypt.hash(user.password, 10)

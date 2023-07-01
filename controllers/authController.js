@@ -2,7 +2,7 @@ const bcrypt = require('bcrypt')
 
 const Users = require('../models/User')
 
-class AuthenticationController {
+class AuthController {
     static async login(req, res) {
         try{
             const {username,password} = req.body
@@ -10,14 +10,14 @@ class AuthenticationController {
             const user = await Users.findOne({where:{username}})
 
             if(!user){
-                return res.status(401).json({message:'Invalid username'})
+                return res.status(401).json({message:'Usuário inválido'})
             }
 
             const compareResult = await bcrypt.compare(password, user.password)
 
             if(!compareResult)
             {
-              return res.status(401).json({message:'Invalid password'})
+              return res.status(401).json({message:'Senha Inválida'})
             }
 
             res.status(200).json({message: 'Login OK'})
@@ -30,4 +30,4 @@ class AuthenticationController {
     
   }
   
-  module.exports = AuthenticationController
+  module.exports = AuthController

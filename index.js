@@ -1,10 +1,11 @@
 const express = require('express')
 const conn = require('./database/conn')
-
 const app = express()
 const usersRoutes = require('./routes/usersRoutes')
-const authenticationRoutes = require('./routes/authRoutes')
+const authRoutes = require('./routes/authRoutes')
 const coursesRoutes = require('./routes/coursesRoutes')
+const enrollementsRoutes = require('./routes/enrollmentRoutes')
+
 
 app.use(
     express.urlencoded({
@@ -13,11 +14,11 @@ app.use(
 )
 app.use(express.json())
 
-app.use('/users',usersRoutes)
-
-app.use('/login', authenticationRoutes)
-
+//Rotas
+app.use('/user',usersRoutes)
+app.use('/login', authRoutes)
 app.use('/cursos', coursesRoutes)
+app.use('/enrollments', enrollementsRoutes)
 
 conn.sync({ force: false }) 
   .then(() => {
