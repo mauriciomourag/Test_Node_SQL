@@ -6,10 +6,8 @@ const sequelize = new Sequelize('dbteste', 'root', 'admin', {
     dialect: 'mariadb',
     define: {        
         freezeTableName: true
-    }
-   
+    }   
   })
-
   
 try{
     sequelize.authenticate()
@@ -19,6 +17,5 @@ catch(err)
 {
     console.log('Connection error')
 }
-
 
 module.exports = sequelize

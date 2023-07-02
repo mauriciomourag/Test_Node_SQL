@@ -1,0 +1,40 @@
+Rotas:
+
+POST http://localhost:3333/user/cadastro
+	{
+        "username": "Jonas",
+        "password": "jonas123",
+        "name": "Jonas",
+        "email": "jonas@gmail.com",
+        "age": 21,
+        "phoneNumber": "123456759665",
+        "country": "Brasil"
+	}
+
+GET http://localhost:3333/user
+GET http://localhost:3333/user/6
+GET http://localhost:3333/cursos
+POST http://localhost:3333/cursos
+	{
+        "description": "Medicina",
+        "maxParticipants": 20,
+        "remainingVacancies": 14
+	}
+
+DELETE http://localhost:3333/cursos/6
+
+//o "enrollments" é a inscricao do aluno. Resolvi seguir o padrão de nome mostrado na aula
+GET http://localhost:3333/enrollments
+DELETE http://localhost:3333/enrollments/2
+
+POST http://localhost:3333/enrollments
+	{
+        "userID": 4,
+        "coursesInfoId": 1
+	}
+
+POST http://localhost:3333/login     
+	{
+        "username": "Carlos",
+        "password": "carlos123"
+   	}

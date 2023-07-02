@@ -1,7 +1,5 @@
 const { Sequelize, DataTypes } = require('sequelize')
-
 const db = require('../database/conn')
-
 const User = require('../models/User')
 const Courses = require('../models/Courses')
 

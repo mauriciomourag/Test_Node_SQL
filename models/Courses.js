@@ -1,5 +1,4 @@
 const { Sequelize, DataTypes } = require('sequelize')
-
 const db = require('../database/conn')
 
 const CoursesInfo = db.define('CoursesInfo', {

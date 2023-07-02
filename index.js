@@ -6,7 +6,6 @@ const authRoutes = require('./routes/authRoutes')
 const coursesRoutes = require('./routes/coursesRoutes')
 const enrollementsRoutes = require('./routes/enrollmentRoutes')
 
-
 app.use(
     express.urlencoded({
         extended:true

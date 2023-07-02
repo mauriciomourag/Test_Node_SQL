@@ -36,8 +36,25 @@ const addcourse = async (req,res)=>{
     res.json(course)
   } catch (error) {
     console.error(error)
-    res.status(500).send('Erro')
+    res.status(500).send('Erro do Servidor')
   }  
 }
 
-module.exports={getcourse, addcourse, getCourseById}
+const deleteCourse = async (req, res) => {
+  const courseId = req.params.id;
+  try {
+    const course = await CoursesInfo.findByPk(courseId);
+    if (course) {
+      await CoursesInfo.destroy({ where: { id: courseId } });
+      res.json({ message: 'Curso excluído com sucesso' });
+    } else {
+      res.status(404).json({ message: 'Curso não encontrado' });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Erro do Servidor');
+  }
+}
+
+module.exports = { getcourse, addcourse, getCourseById, deleteCourse };
+
